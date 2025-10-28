@@ -36,7 +36,7 @@ pokeneas_data = [
         "nombre": "Ñerardo",
         "altura": "1.0m",
         "habilidad": "Sabiduría de la Esquina",
-        "imagen": "https://pokeneas-imagenes.s3.us-east-1.amazonaws.com/nerardo.png",
+        "imagen": "https://pokeneas-imagenes.s3.us-east-1.amazonaws.com/ñerardo.png",
         "frase_filosofica": "La esquina enseña lo que la escuela calla."
     },
     {
