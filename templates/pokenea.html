@@ -99,20 +99,20 @@
 
         .container-info {
             background-color: #555;
-            padding: 15px;
+            padding: 5px;
             border-radius: 10px;
             border: 2px solid orange;
-            margin: 20px 0;
+            margin: 5px 0;
         }
 
         .container-id {
             font-family: monospace;
             background-color: black;
             color: gold;
-            padding: 10px;
+            padding: 2px;
             border-radius: 5px;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 2px;
         }
 
         .buttons a {
@@ -190,7 +190,10 @@
         <div class="quote">
             "{{ pokenea.frase_filosofica }}"
         </div>
-
+        <div class="container-info">
+            <strong>Container ID:</strong>
+            <div class="container-id">{{ container_id }}</div>
+        </div>
         <div class="buttons">
             <a href="/" class="btn-primary">Otro Parce</a>
             <a href="/api/pokenea" class="btn-secondary">Ver JSON</a>
