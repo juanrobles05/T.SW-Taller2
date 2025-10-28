@@ -34,6 +34,7 @@
             margin: 20px 0;
         }
 
+        /* fallback circular graphic when no image is provided */
         .pokenea-image {
             width: 200px;
             height: 200px;
@@ -46,6 +47,19 @@
             font-size: 2em;
             font-weight: bold;
             color: black;
+        }
+
+        /* when an actual <img> is used, make it circular and cover the box */
+        img.pokenea-image {
+            display: block;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px auto;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            border: 3px solid rgba(255,215,0,0.9);
+            background-color: #eee;
         }
 
         .stats {
@@ -144,9 +158,13 @@
     <div class="container">
         <h1>POKENEA</h1>
 
-        <div class="pokenea-image">
-            NEA
-        </div>
+        {%- if pokenea.imagen -%}
+            <img src="{{ pokenea.imagen }}" alt="{{ pokenea.nombre }}" class="pokenea-image" loading="lazy">
+        {%- else -%}
+            <div class="pokenea-image">
+                NEA
+            </div>
+        {%- endif -%}
 
         <h2>{{ pokenea.nombre }}</h2>
 
