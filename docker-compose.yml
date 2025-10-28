@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  pokenea:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+    restart: unless-stopped
+    
+  # Para testing con múltiples instancias
+  pokenea-replica:
+    build: .
+    ports:
+      - "5001:5000"
+    environment:
+      - FLASK_ENV=production
+    restart: unless-stopped

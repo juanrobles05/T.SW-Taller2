@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pokenea.nombre }} - Pokenea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid gold;
+        }
+
+        h1 {
+            color: gold;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: lime;
+            font-size: 2em;
+            margin: 20px 0;
+        }
+
+        .pokenea-image {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, gold, orange, lime);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            font-size: 2em;
+            font-weight: bold;
+            color: black;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid gold;
+        }
+
+        .stat-label {
+            color: lime;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            color: gold;
+            font-size: 1.2em;
+        }
+
+        .quote {
+            background-color: #444;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid lime;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .container-info {
+            background-color: #555;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid orange;
+            margin: 20px 0;
+        }
+
+        .container-id {
+            font-family: monospace;
+            background-color: black;
+            color: gold;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .buttons a {
+            display: inline-block;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: gold;
+            color: black;
+        }
+
+        .btn-secondary {
+            background-color: lime;
+            color: black;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #999;
+        }
+
+        .paisa {
+            color: gold;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 600px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>POKENEA</h1>
+
+        <div class="pokenea-image">
+            NEA
+        </div>
+
+        <h2>{{ pokenea.nombre }}</h2>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-label">ID</div>
+                <div class="stat-value">#{{ pokenea.id }}</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Altura</div>
+                <div class="stat-value">{{ pokenea.altura }}</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Habilidad</div>
+                <div class="stat-value">{{ pokenea.habilidad }}</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Origen</div>
+                <div class="stat-value">Antioquia</div>
+            </div>
+        </div>
+        <div class="quote">
+            "{{ pokenea.frase_filosofica }}"
+        </div>
+
+        <div class="container-info">
+            <strong>Container ID:</strong>
+            <div class="container-id">{{ container_id }}</div>
+        </div>
+
+        <div class="buttons">
+            <a href="/" class="btn-primary">Otro Parce</a>
+            <a href="/api/pokenea" class="btn-secondary">Ver JSON</a>
+        </div>
+    </div>
+</body>
+</html>
