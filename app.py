@@ -1,10 +1,12 @@
 from flask import Flask, render_template, jsonify
+import json
 import random
 import socket
 import os
 from models.pokenea import pokeneas_data
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 def get_container_id():
     """Obtiene el ID del contenedor"""
@@ -28,7 +30,11 @@ def get_random_pokenea_api():
         "container_id": get_container_id()
     }
 
-    return jsonify(response_data)
+    # Return pretty JSON with UTF-8 characters unescaped so accents/ñ appear correctly
+    return app.response_class(
+        json.dumps(response_data, ensure_ascii=False, indent=2),
+        mimetype='application/json; charset=utf-8'
+    )
 
 @app.route('/')
 def show_random_pokenea():
@@ -43,10 +49,11 @@ def show_random_pokenea():
 @app.route('/health')
 def health_check():
     """Endpoint de verificación de salud"""
-    return jsonify({
-        "status": "healthy",
-        "container_id": get_container_id()
-    })
+    payload = {"status": "healthy", "container_id": get_container_id()}
+    return app.response_class(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        mimetype='application/json; charset=utf-8'
+    )
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
